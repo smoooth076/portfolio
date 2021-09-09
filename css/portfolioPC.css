@@ -322,6 +322,44 @@ header {
     background: #000;
 }
 
+/* detail keyword, color 수정 */
+.pj .detail > div > div {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pj .detail > div > div > p {
+    font-weight: bold;
+}
+.pj.one .detail > div:nth-child(2) > div:nth-child(1) {
+    color: #fff;
+    border: none;
+    background: #001c85;
+}
+.pj.one .detail > div:nth-child(2) > div:nth-child(2) {
+    color: #fff;
+    border: none;
+    background: #580085;
+}
+.pj.one .detail > div:nth-child(2) > div:nth-child(3) {
+    border: none;
+    background: #f6f6f8;
+}
+
+.pj.two .detail > div:nth-child(2) > div:nth-child(1) {
+    color: #fff;
+    border: none;
+    background: #ffcc00;
+}
+.pj.two .detail > div:nth-child(2) > div:nth-child(2) {
+    color: #fff;
+    border: none;
+    background: #000;
+}
+
 
 
 
