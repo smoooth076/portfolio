@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>It's HJ</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="../portfolio/css/portfolioPC.css" />
 </head>
 
@@ -20,22 +21,22 @@
             <p> It's<br>HJ</p>
         </div>
         <div class="menu">
-            <p>
+            <p data-id="top">
                 <span></span>
                 MAIN
                 <span></span>
             </p>
-            <p>
+            <p data-id="about">
                 <span></span>
                 ABOUT
                 <span></span>
             </p>
-            <p>
+            <p data-id="project">
                 <span></span>
                 PROJECT
                 <span></span>
             </p>
-            <p>
+            <p data-id="contact">
                 <span></span>
                 CONTACT
                 <span></span>
@@ -46,41 +47,176 @@
         <p class="typing1">Hello!</p>
         <P class="typing2">It's HJ</P>
         <p>Web publishing portfolio</p>
-        <img src="../portfolio/images/portfolio/hand.png" alt="손이모지">
+        <img src="../images/portfolio/hand.png" alt="손이모지">
         <div>
             SCROLL<br>DOWN
         </div>
     </div>
-    <div class="sec about" id="trigger1">
+    <div class="sec about">
         <div class="inner" data-aos="fade-up">
             <h1>ABOUT HJ</h1>
             <div>
-                <img src="../portfolio/images/portfolio/art.jpg" alt="일러스트">
+                <img src="../images/portfolio/art.jpg" alt="일러스트">
             </div>
             <div>
-                <p class="verticalAni" data-aos="fade-right"  data-aos-delay="500" data-aos-easing="ease-in-sine">Thinkable,</p>
+                <p class="verticalAni" data-aos="fade-right" data-aos-delay="500" data-aos-easing="ease-in-sine">Thinkable,</p>
                 <p class="verticalAni" data-aos="fade-right" data-aos-delay="1000" data-aos-easing="ease-in-sine">Achievable,</p>
                 <p class="verticalAni" data-aos="fade-right" data-aos-delay="1500" data-aos-easing="ease-in-sine">Reliable,</p>
                 <p class="verticalAni" data-aos="fade-right" data-aos-delay="2000" data-aos-easing="ease-in-sine">So, Cowork-able HJ!</p>
                 <div>
                     <p>NAME: 황보희재</p>
                     <p>BIRTH: 93.07.06</p>
-                    <p>CAREER: 2021 웹디자인(UI,UX) 및 반응형 웹 프로젝트 과정 수료</p> 
-                    <p><span>CAREER: </span>2018 충북대학교 고고미술사학과 졸업(인문학사)</p>
+                    <p>EDUCATION: 2021 웹디자인(UI,UX) 및 반응형 웹 프로젝트 과정 수료</p>
+                    <p><span>EDUCATION: </span>2018 충북대학교 고고미술사학과 졸업(인문학사)</p>
                     <p>SKILLS: HTML/CSS, JS, JQUERY, DESIGN, UI/UX</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="sec project"></div>
-    <div class="sec contact"></div>
+    <div class="sec project">
+        <div class="inner" data-aos="fade-up">
+            <h1>PROJECT</h1>
+            <div class="slider-for">
+                <div class="pj one clearfix">
+                    <div class="thumb">
+                        <img src="../images/portfolio/pa.png" alt="국립중앙박물관 썸네일">
+                        <!-- <div>
+                            <p><a href="https://ezportfolio.cafe24.com/ez210607/hbhj/projectA/html/pa.html" target="_blank">VIEW</a></p>
+                        </div> -->
+                    </div>
+                    <div class="keyword">
+                        <span>UI/UX</span>
+                        <span>web design</span>
+                        <span>publishing</span>
+                        <span>jQuery</span>
+                        <span>cross browsing</span>
+                    </div>
+                    <div class="title">
+                        국립중앙박물관
+                    </div>
+                    <div class="description">
+                        국립중앙박물관 웹사이트를 반응형으로 새롭게 제작한 개인 작업물입니다. <br>
+                    </div>
+                    <div class="detail">
+                        concept keywords:
+                        <div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        color system:
+                        <div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <a href="https://runauxlabs.github.io/portfolio/ui/hbhj_ui.pdf" target="_blank"><span>UI 정의서</span></a>
+                        <a href="https://ezportfolio.cafe24.com/ez210607/hbhj/projectA/html/pa.html" target="_blank"><span>MAIN</span></a>
+                        <a href="https://ezportfolio.cafe24.com/ez210607/hbhj/projectA/html/pa_sub01.html" target="_blank"><span>SUB 1</span></a>
+                        <a href="https://ezportfolio.cafe24.com/ez210607/hbhj/projectA/html/pa_sub02.html" target="_blank"><span>SUB 2</span></a>
+                    </div>
+                </div>
+                <div class="pj two clearfix">
+                    <div class="thumb">
+                        <img src="../images/portfolio/pb.png" alt="내셔널지오그래픽채널 썸네일">
+                        <!-- <div>
+                            <p><a href="https://ezportfolio.cafe24.com/ez210607/hbhj/projectB/html/pb.html" target="_blank">VIEW</a></p>
+                        </div> -->
+                    </div>
+                    <div class="keyword">
+                        <span>UI/UX</span>
+                        <span>web design</span>
+                        <span>publishing</span>
+                        <span>jQuery</span>
+                    </div>
+                    <div class="title">
+                        내셔널 지오그래픽 채널
+                    </div>
+                    <div class="description">
+                        내셔널 지오그래픽 웹사이트의 채널 메뉴를 반응형으로 새롭게 제작한 개인 작업물입니다. <br>
+                    </div>
+                    <div class="detail">
+                        concept keywords:
+                        <div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        color system:
+                        <div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <a href="https://ezportfolio.cafe24.com/ez210607/hbhj/projectB/html/pb.html" target="_blank"><span>MAIN</span></a>
+                    </div>
+                </div>
+                <div class="pj three clearfix">
+                    <div class="thumb">
+                        <img src="../images/portfolio/pc.png" alt="청주시 코로나19 상황판">
+                        <!-- <div>
+                            <p><a href="https://ezportfolio.cafe24.com/ez210607/hbhj/projectB/html/pb.html" target="_blank">VIEW</a></p>
+                        </div> -->
+                    </div>
+                    <div class="keyword">
+                        <span>UI/UX</span>
+                        <span>web design</span>
+                        <span>publishing</span>
+                        <span>java script</span>
+                    </div>
+                    <div class="title">
+                        청주시 코로나19 상황판(준비 중)
+                    </div>
+                    <div class="description">
+                        청주시 코로나바이러스감염증-19 비상대책 웹사이트를 새롭게 제작한 개인 작업물입니다. <br>
+                    </div>
+                    <div class="detail">
+                        concept keywords:
+                        <div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        color system:
+                        <div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                    </div>
+                </div>
+                <!-- <div class="pj three">4</div> -->
+            </div>
+            <div class="slider-nav">
+                <div class="slideThumb one">
+                    <img src="../images/portfolio/projectAthumb.png" alt="국립중앙박물관 썸네일">
+                    <div>#1</div>
+                </div>
+                <div class="slideThumb two">
+                    <img src="../images/portfolio/projectBthumb.png" alt="내셔널 지오그래픽 썸네일">
+                    <div>#2</div>
+                </div>
+                <div class="slideThumb three">
+                    <img src="../images/portfolio/projectCthumb.png" alt="청주시 코로나19 상황판 썸네일">
+                    <div>#3</div>
+                </div>
+                <!-- <div class="slideThumb four">4</div> -->
+            </div>
+        </div>
+    </div>
+    <div class="sec contact">
+    </div>
     <footer></footer>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="../portfolio/js/portfolio.js"></script>
 </body>
