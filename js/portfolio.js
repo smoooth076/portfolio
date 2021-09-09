@@ -1,27 +1,32 @@
-// $(function() { // wait for document ready
-//     // init
-//     var controller = new ScrollMagic.Controller({
-//         globalSceneOptions: {
-//             triggerHook: 'onLeave',
-//             duration: "200%" // this works just fine with duration 0 as well
-//             // However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
-//             // Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
-//         }
-//     });
+$(function() {
+    $('.slider-for').slick({
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        // fade: true,
+        asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+        infinite: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        // dots: true,
+        arrows: false,
+        centerMode: true,
+        focusOnSelect: true,
+        // verticalSwiping: true,
+        vertical: true
+    });
+    $(".menu p").each(function() {
+        var thisOffset = $("." + $(this).data('id')).offset().top;
 
-//     // get all slides
-//     var slides = document.querySelectorAll(".sec");
-
-//     // create scene for every slide
-//     for (var i = 0; i < slides.length; i++) {
-//         new ScrollMagic.Scene({
-//                 triggerElement: slides[i]
-//             })
-//             .setPin(slides[i], {
-//                 pushFollowers: false
-//             })
-//             .addIndicators() // add indicators (requires plugin)
-//             .addTo(controller);
-
-//     }
-// });
+        $(this).click(function() {
+            $("html, body").animate({
+                scrollTop: thisOffset
+            }, 1000);
+            $(this).addClass('on');
+        });
+    });
+});
