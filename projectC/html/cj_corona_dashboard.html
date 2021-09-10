@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>청주시 코로나19 현황</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=c331b3732d5a5a563ea16a8807c0f655"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/cj_corona_dashboard.css" />
+</head>
+
+<body>
+    <script> 
+        AOS.init(); 
+    </script>
+    <div class="inner">
+        <div class="title">
+            <div class="left"></div>
+            <div class="center">
+                <a href="../html/cj_corona_dashboard.html" title="메인">
+                    <p>청주시 <span>코로나19</span> 현황</p>
+                </a>
+                <div class="topBox">
+                    <p id="currentTime"></p>
+                    <div class="box one">
+                        <div>
+                            <div>확진자</div>
+                            <div id="count1"></div>
+                        </div>
+                        <div>
+                            <div>치료중</div>
+                            <div id="count2"></div>
+                        </div>
+                        <div>
+                            <div>완치판정</div>
+                            <div id="count3"></div>
+                        </div>
+                        <div>
+                            <div>사망자</div>
+                            <div id="count4">37</div>
+                        </div>
+                    </div>
+                    <div class="box two">
+                        <div>
+                            <div>백신접종 (1차)</div>
+                            <div id="count5">123,456</div>
+                        </div>
+                    </div>
+                    <div class="box three">
+                        <div>
+                            <div>자가격리자</div>
+                            <div id="count6">1234</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <a href="#">청주시청 코로나 관련 대응팀</a>
+                <a href="#">코로나바이러스 감염증-19 (COVID-19)</a>
+            </div>
+        </div>
+        <aside class="a1">
+            <div class="menu">코로나19 백신예방접종 안내</div>
+            <ul class="sub">
+                <li class="a1menu" data-id="con1">
+                    코로나19 백신 예방접종 안내
+                </li>
+                <li class="a1menu" data-id="con2">
+                    예방접종센터 위치 및 <br>위탁의료기관 현황
+                </li>
+                <li class="a1menu" data-id="con3">
+                    코로나19 백신·치료제 정보
+                </li>
+            </ul>
+            <div class="menu">대응현황 및 자가격리 및 해제예정</div>
+            <ul class="sub">
+                <li class="a1menu">자가격리 및 해제(예정)상황</li>
+                <li class="a1menu">일일 대응현황</li>
+            </ul>
+            <div class="menu">충청북도 사회적 거리두기 단계</div>
+            <ul class="sub">
+                <li class="a1menu">사회적 거리두기 3단계+α 시행</li>
+                <li class="a1menu">사회적 거리 두기 개편안 및 주요 방역수칙</li>
+            </ul>
+            <div class="menu">선별진료소 안내</div>
+            <ul class="sub">
+                <li class="a1menu">보건소 선별진료소</li>
+                <li class="a1menu">민간의료기관 선별진료소 및 코로나 검사가능 의료기관</li>
+            </ul>
+            <div class="menu">공공시설 운영 현황</div>
+            <ul class="sub">
+                <li class="a1menu">공공시설 운영 현황 자료</li>
+            </ul>
+            <div class="menu">코로나19 FAQ</div>
+        </aside>
+        <div class="main m0 on">
+            <div class="mainLeft">
+                <div class="mainTop">
+                    <p class="subject">확진자 추세</p>
+                    <div class="bar"></div>
+                    <div>
+                        <figure class="highcharts-figure">
+                            <div id="container1"></div>
+                        </figure>
+                    </div>
+                </div>
+                <div class="mainBottom">
+                    <p class="subject">청주시 거리두기 단계</p>
+                    <div class="bar"></div>
+                    <div data-aos="zoom-in">
+                        <div>
+                            <img src="../images/pc/cj_map.png" alt="청주시 거리두기 단계">
+                        <div class="box1">
+                            현재<br>
+                            <span>3단계+α</span>
+                        </div>
+                        </div>
+                        <div>
+                            <div class="box2">
+                                <p>기타 시·도 거리두기 단계</p>
+                                <div class="city lv4">
+                                    서울
+                                    <span>4</span>
+                                </div>
+                                <div class="city lv4">
+                                    경기
+                                    <span>4</span>
+                                </div>
+                                <div class="city lv4">
+                                    인천
+                                    <span>4</span>
+                                </div>
+                                <div class="city lv4">
+                                    부산
+                                    <span>4</span>
+                                </div>
+                                <div class="city lv4">
+                                    제주
+                                    <span>4</span>
+                                </div>
+                                <div class="city lv3">
+                                    세종
+                                    <span>3</span>
+                                </div>
+                                <div class="city lv3">
+                                    대전
+                                    <span>3</span>
+                                </div>
+                                <div class="city lv3">
+                                    부산
+                                    <span>3</span>
+                                </div>
+                                <div class="city lv3">
+                                    울산
+                                    <span>3</span>
+                                </div>
+                                <div class="city lv3">
+                                    광주
+                                    <span>3</span>
+                                </div>
+                                <div class="city lv3">
+                                    강원
+                                    <span>3</span>
+                                </div>
+                                <div class="city lv3">
+                                    충북
+                                    <span>3</span>
+                                </div>
+                                <div class="city lv3">
+                                    충남
+                                    <span>3</span>
+                                </div>
+                                <div class="city lv3">
+                                    전북
+                                    <span>3</span>
+                                </div>
+                                <div class="city lv3">
+                                    전남
+                                    <span>3</span>
+                                </div>
+                                <div class="city lv3">
+                                    경북
+                                    <span>3</span>
+                                </div>
+                                <div class="city lv3">
+                                    경남
+                                    <span>3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainRight">
+                <div class="mainTop">
+                    <p class="subject">코로나19 백신접종률</p>
+                    <div class="bar"></div>
+                    <div>
+                        <figure class="highcharts-figure">
+                            <div id="container2"></div>
+                        </figure>
+                    </div>
+                </div>
+                <div class="mainBottom">
+                    <p class="subject">청주시 코로나19 NEWS</p>
+                    <div class="bar"></div>
+                    <div>
+                        <table class="mt10">
+                            <thead>
+                                <tr>
+                                    <th>순번</th>
+                                    <th>제목</th>
+                                    <th>날짜</th>
+                                </tr>
+                            </thead>
+                            <tbody class="newsresult">
+                                <tr>
+                                    <td colspan="3">뉴스 출력이 원할하지 않습니다</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main m1" id="con1">
+            <div class="swiper mySwiper1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide one">
+                        <p class="subject">코로나19 예방접종 3분기 시행계획 안내</p>
+                        <img src="../images/pc/info1.jpg" alt="코로나19 예방접종 3분기 시행계획 안내">
+                    </div>
+                    <div class="swiper-slide two">
+                        <p class="subject">하반기 AZ백신 2차접종 일부 교차접종 진행 안내</p>
+                        <img src="../images/pc/info1-1.jpg" alt="하반기 AZ백신 2차접종 일부 교차접종 진행 안내">
+                    </div>
+                    <div class="swiper-slide three">
+                        <p class="subject">사전예약 방법 안내</p>
+                        <div>
+                            <img src="../images/pc/info2.jpg" alt="사전예약 방법 안내">
+                            <div>
+                                <video controls width="515" height="320">
+                                    <source src="https://corona.cheongju.go.kr/%EC%98%88%EB%B0%A9%EC%A0%91%EC%A2%85%20%EC%82%AC%EC%A0%84%EC%98%88%EC%95%BD%EB%B0%A9%EB%B2%95%20%EC%98%81%EC%83%81%EC%BD%98%ED%85%90%EC%B8%A0.mp4" type="video/mp4">
+                                </video>
+                                <table>
+                                    <tr>
+                                        <th>구분</th>
+                                        <th>사전예약 전화번호</th>
+                                        <th>운영요일</th>
+                                        <th>운영시간</th>
+                                    </tr>
+                                    <tr>
+                                        <td>충청북도청</td>
+                                        <td>043-120-0</td>
+                                        <td rowspan="2">평일</td>
+                                        <td>평일 09:00~18:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>청주시</td>
+                                        <td>상당 043)201-4840~4841<br>
+                                            서원 043)201-4842~4843<br>
+                                            흥덕 043)201-4844~4845<br>
+                                            청원 043)201-4846~4847</td>
+                                        <td>평일 09:00~18:00<br>
+                                            (점심시간 12:00~13:00 제외)</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide four">
+                        <p class="subject">이상반응 대응 및 피해보상</p>
+                        <img src="../images/pc/info3.jpg" alt="이상반응 대응 및 피해보상">
+                        <div>
+                            <div>
+                                <p class="listTitle">예방 및 대응</p>
+                                <p class="listSubTitle">예방 및 대응</p>
+                                <p class="m1list">철저한 예진을 통해 <span>아나필락시스 위험군 선별</span>, 접종 후 <span>15~30분 이상반응 관찰</span></p>
+                                <p class="m1list">응급의료 대응을 위해 <span>응급의약품 및 응급처치장비 비치, 의료인 사전 교육</span></p>
+                                <p class="m1list">이상반응 발생시 긴급이송을 위해 구급차 상시대기, 응급의료기관 사전지정(접종센터)</p>
+                            </div>
+                            <div>
+                                <p class="listTitle">감시 강화</p>
+                                <p class="listSubTitle">의료인 신고 및 피접종자 대상 적극적 이상반응 모니터링</p>
+                                <p class="m1list">문자 알림(URL), 예방접종도우미 앱 등 <span>쉽고 편리하게 신고할 수 있는 플랫폼 제공</span></p>
+                                <p class="m1list"><span>중앙·권역 예방접종센터</span>를 통한 초기 접종 <span>전수 모니터링·감시체계 운영</span></p>
+                                <p class="m1list"><span>해외·국내 이상반응</span> 및 사망 통계 분석을 통한 <span>감시기준 마련</span>, 백신별·접종대상자 특성별 <span>이상반응 조사·감시체계 운영</span></p>
+                            </div>
+                            <div>
+                                <p class="listTitle">신속대응</p>
+                                <p class="listSubTitle">코로나19 백신 접종 후 중증 이상반응(아나필락시스 등) 에 신속대응할 수 있도록 철저한 예방접종 안전관리 체계 운영</p>
+                                <p class="m1list">중증 이상반응 발생시 신속한 역학조사 및 피해조사를 실시하도록 <span>시·도별 민관 합동 이상반응 신속대응팀 구성</span></p>
+                                <p class="m1list">중증 이상반응 대비 <span>질병청과 지자체 핫라인 구축으로 신속대응</span></p>
+                                <p class="m1list"><span>관계부처–민간전문가 협력</span>하여 신속하고 투명한 이상반응 인과성 판단</p>
+                            </div>
+                            <div>
+                                <p class="listTitle">피해보상</p>
+                                <p class="listSubTitle">예방접종과 인과성이 인정되는 피해사례는 기존 ‘예방접종피해보상제도’를 준용하여 국가가 보상</p>
+                                <p class="m1list">절차
+                                    역학조사, 피해사례 조사 후 <span>인과성이 인정되는 경우 ‘예방접종 피해보상 전문위원회’ 심의 후 보상 결정</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide five">
+                        <p class="subject">예방접종 피해 국가보상 절차</p>
+                        <img src="../images/pc/info4.jpg" alt="예방접종 피해 국가보상 절차">
+                        <ul>
+                            <li><b>신청·결정 기간</b><br>
+                                예방접종 후 이상반응이 발생한 날로부터 5년 이내 신청하고, 신청일로 부터 120일 이내 심의 후 결정<br>
+                                * 보상금 지급 여부등 에 대한 이의신청 가능(시군구 → 시도 → 질병청)</li>
+                            <li><b>보상내용</b><br>
+                                진료비, 간병비, 장제비 및 사망 · 장애일시보상금<br>
+                                * (진료비) 본인이 부담한 금액(30만원 이상 부담 시), (간병비) 일 5만원, (장제비) 30만원, (보상금) 사망시 月최저임금 x 240(’20년 4.3억원), 장애시 사망보상금의 55%～100%
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <div class="main m2" id="con2">
+            <div class="mainLeft">
+                <div class="mainTop">
+                    <p class="subject">청주시 백신 예방접종센터 위치</p>
+                    <div class="bar"></div>
+                    <div id="map"></div>
+                </div>
+                <div class="mainBottom">
+                    <div>
+                        <table>
+                            <tr>
+                                <td>구별</td>
+                                <td>시설명</td>
+                                <td>소재지</td>
+                                <td>사용공간</td>
+                            </tr>
+                            <tr>
+                                <td>상당구</td>
+                                <td>상당구청 스포츠센터</td>
+                                <td>청주시 상당구 남일면 단재로 466</td>
+                                <td>3층 체육관</td>
+                            </tr>
+                            <tr>
+                                <td>서원구</td>
+                                <td>청주체육관</td>
+                                <td>청주시 서원구 사직대로 229</td>
+                                <td>1층 경기장</td>
+                            </tr>
+                            <tr>
+                                <td>흥덕구</td>
+                                <td>구 흥덕구청</td>
+                                <td>청주시 흥덕구 대농로 88</td>
+                                <td>1층</td>
+                            </tr>
+                            <tr>
+                                <td>청원구</td>
+                                <td>청주시 장애인 스포츠센터</td>
+                                <td>충북 청주시 청원구 사천로 18번길 81</td>
+                                <td>1층 경기장</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="mainRight">
+                <div class="mainTop">
+                    <p class="subject">위탁의료기관 현황</p>
+                    <div class="bar"></div>
+                    <div>
+                        <div class="bt">
+                            <button class="on" data-id="main2Tap1">상당구</button>
+                            <button data-id="main2Tap2">서원구</button>
+                            <button data-id="main2Tap3">흥덕구</button>
+                            <button data-id="main2Tap4">청원구</button>
+                        </div>
+                        <div class="tb on" id="main2Tap1">
+                            <table>
+                                <tr>
+                                    <td>관할동</td>
+                                    <td>의료기관명</td>
+                                    <td>주소</td>
+                                    <td>연락처</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="13">용암동(13)</td>
+                                    <td>고은소아과의원</td>
+                                    <td>청주시 상당구 용암북로138번길 36,<br>(용암동) 2층</td>
+                                    <td>284-9898</td>
+                                </tr>
+                                <tr>
+                                    <td>길소아청소년과의원</td>
+                                    <td>청주시 상당구 원봉로 21,<br>(용암동, 태암소라아파트상가) 204호</td>
+                                    <td>293-0539</td>
+                                </tr>
+                                <tr>
+                                    <td>상당이비인후과의원</td>
+                                    <td>청주시 상당구 중고개로 181,<br>(용암동) 2층</td>
+                                    <td>298-8007</td>
+                                </tr>
+                                <tr>
+                                    <td>새소망의원</td>
+                                    <td>청주시 상당구 무농정로 96,<br>(용암동, 용암세원한아름아파트 상가동) 202,203호</td>
+                                    <td>283-8875</td>
+                                </tr>
+                                <tr>
+                                    <td>신통요셉의원</td>
+                                    <td>충청북도 청주시 상당구 중흥로 201,<br>3층(용암동)</td>
+                                    <td>294-0775</td>
+                                </tr>
+                                <tr>
+                                    <td>아이튼튼소아청소년과의원</td>
+                                    <td>충청북도 청주시 상당구 중고개로 137,<br>4층 8,9호(용암동)</td>
+                                    <td>283-7582</td>
+                                </tr>
+                                <tr>
+                                    <td>연세베스토내과의원</td>
+                                    <td>청주시 상당구 용암북로138번길35,<br> (용암동)</td>
+                                    <td>285-7582</td>
+                                </tr>
+                                <tr>
+                                    <td>용암메디칼의원</td>
+                                    <td>청주시 상당구 월평로 174,<br>(용암동) 2층</td>
+                                    <td>288-0075</td>
+                                </tr>
+                                <tr>
+                                    <td>이소아청소년과의원</td>
+                                    <td>청주시 상당구 중고개로 180-5,<br>(용암동)</td>
+                                    <td>286-8253</td>
+                                </tr>
+                                <tr>
+                                    <td>조가정의학과의원</td>
+                                    <td>청주시 상당구 중흥로 145,<br>(용암동, 퓨전상가) 2.3층 </td>
+                                    <td>285-2002</td>
+                                </tr>
+                                <tr>
+                                    <td>참다운가정의학과의원</td>
+                                    <td>청주시 상당구 월평로 228,<br>(용암동) 203호</td>
+                                    <td>298-8777</td>
+                                </tr>
+                                <tr>
+                                    <td>최동석소아청소년과의원</td>
+                                    <td>청주시 상당구 월평로182,<br>(용암동)</td>
+                                    <td>298-7000</td>
+                                </tr>
+                                <tr>
+                                    <td>한빛의원</td>
+                                    <td>청주시 상당구 용암로3,<br>(용암동)</td>
+                                    <td>293-6211</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="10">금천동(10)</td>
+                                    <td>고운산부인과의원</td>
+                                    <td>청주시 상당구 중고개로 320,<br>(금천동) 2층</td>
+                                    <td>285-7373</td>
+                                </tr>
+                                <tr>
+                                    <td>굿모닝소아청소년과의원</td>
+                                    <td>청주시 상당구 산성로92번길6,<br>(금천동,203호)</td>
+                                    <td>295-8575</td>
+                                </tr>
+                                <tr>
+                                    <td>금천성모의원</td>
+                                    <td>청주시 상당구 쇠내로 127,<br>(금천동) 2층</td>
+                                    <td>257-4861</td>
+                                </tr>
+                                <tr>
+                                    <td>명성의원</td>
+                                    <td>청주시 상당구 꽃산동로 25,<br>(금천동, 금천우미린상가동) 201,202호</td>
+                                    <td>291-8275</td>
+                                </tr>
+                                <tr>
+                                    <td>연세유정산부인과의원</td>
+                                    <td>청주시 상당구 중고개로333,<br>(금천동)</td>
+                                    <td>250-0001</td>
+                                </tr>
+                                <tr>
+                                    <td>용이비인후과의원</td>
+                                    <td>청주시 상당구 중고개로 320,<br>(금천동)</td>
+                                    <td>284-3007</td>
+                                </tr>
+                                <tr>
+                                    <td>의료법인 정산의료재단 효성병원</td>
+                                    <td>충청북도 청주시 상당구 쇠내로 16,<br>(금천동)</td>
+                                    <td>221-5000</td>
+                                </tr>
+                                <tr>
+                                    <td>참편한하신경과의원</td>
+                                    <td>청주시 상당구 중고개로 322,<br>(금천동) 2층</td>
+                                    <td>285-5288</td>
+                                </tr>
+                                <tr>
+                                    <td>청주가정의학과의원 </td>
+                                    <td>청주시 상당구 수영로228,<br>(금천동)</td>
+                                    <td>253-7560</td>
+                                </tr>
+                                <tr>
+                                    <td>튼튼정형외과의원</td>
+                                    <td>청주시 상당구 산성로92번길 6,<br>(금천동, 굿모닝타워) 3층</td>
+                                    <td>287-0852</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">영운동(2)</td>
+                                    <td>의료법인 인화재단 한국병원</td>
+                                    <td>청주시 상당구 단재로 106,<br>(영운동)</td>
+                                    <td>222-7000</td>
+                                </tr>
+                                <tr>
+                                    <td>유사랑내과의원</td>
+                                    <td>충청북도 청주시 상당구 단재로 117,<br>(영운동)</td>
+                                    <td>259-5566</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="13">성안동(13)</td>
+                                    <td>김영태신경외과의원</td>
+                                    <td>청주시 상당구 단재로21-1,<br>(석교동)</td>
+                                    <td>258-0174</td>
+                                </tr>
+                                <tr>
+                                    <td>남궁요양병원</td>
+                                    <td>청주시 상당구 상당로 47-0,<br>(남문로2가) 2,3,5층</td>
+                                    <td>252-3000</td>
+                                </tr>
+                                <tr>
+                                    <td>도내과의원</td>
+                                    <td>청주시 상당구 상당로 37,<br>(남문로1가1-6)</td>
+                                    <td>253-9111</td>
+                                </tr>
+                                <tr>
+                                    <td>서울연합항외과의원</td>
+                                    <td>청주시 상당구 상당로 12,<br>(서운동)</td>
+                                    <td>255-5900</td>
+                                </tr>
+                                <tr>
+                                    <td>소리사랑이비인후과의원 </td>
+                                    <td>청주시 상당구 청남로2200,<br>(석교동)</td>
+                                    <td>223-9275</td>
+                                </tr>
+                                <tr>
+                                    <td>오성근이비인후과의원</td>
+                                    <td>청주시 상당구 상당로 41,<br>(문화동)</td>
+                                    <td>256-5577</td>
+                                </tr>
+                                <tr>
+                                    <td>오정진내과의원</td>
+                                    <td>청주시 상당구 용담로 6-1,<br>(문화동)</td>
+                                    <td>252-6200</td>
+                                </tr>
+                                <tr>
+                                    <td>우상민내과의원</td>
+                                    <td>청주시 상당구 청남로 2199,<br>(석교동)</td>
+                                    <td>224-7582</td>
+                                </tr>
+                                <tr>
+                                    <td>윤마취통증의학과의원</td>
+                                    <td>청주시 상당구 청남로 2200,<br>(석교동) 4층</td>
+                                    <td>250-9898</td>
+                                </tr>
+                                <tr>
+                                    <td>이재수내과의원</td>
+                                    <td>청주시 상당구 청남로 2194-2,<br>(석교동) 2층,3층</td>
+                                    <td>255-2233</td>
+                                </tr>
+                                <tr>
+                                    <td>진산부인과의원</td>
+                                    <td>청주시 상당구 단재로16,<br>(석교동)</td>
+                                    <td>255-3566</td>
+                                </tr>
+                                <tr>
+                                    <td>편한내과의원</td>
+                                    <td>청주시 상당구 청남로 2196,<br>(석교동, 중앙메디컬빌딩) 2층,3층</td>
+                                    <td>224-2008</td>
+                                </tr>
+                                <tr>
+                                    <td>행복한노인의원</td>
+                                    <td>청주시 상당구 상당로 19,<br>(남문로1가)</td>
+                                    <td>257-0981</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">중앙동(2)</td>
+                                    <td>의료법인 청주병원</td>
+                                    <td>청주시 상당구 상당로 163</td>
+                                    <td>220-1234</td>
+                                </tr>
+                                <tr>
+                                    <td>드림비뇨기과의원</td>
+                                    <td>청주시 상당구 사직대로 363,<br>(북문로2가) 2층</td>
+                                    <td>225-7575</td>
+                                </tr>
+                                <tr>
+                                    <td>탑동(1)</td>
+                                    <td>현대가정의학과의원</td>
+                                    <td>청주시 상당구 용담로63번길 42,<br>(탑동) 2층</td>
+                                    <td>250-7582</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">용담동(2)</td>
+                                    <td>성천모내과의원</td>
+                                    <td>청주시 상당구 수영로 307,<br>(용담동) 2층</td>
+                                    <td>292-7520</td>
+                                </tr>
+                                <tr>
+                                    <td>정동호소아과의원</td>
+                                    <td>청주시 상당구 수영로 307,<br>(용담동, 부민빌딩) 3층</td>
+                                    <td>288-0361</td>
+                                </tr>
+                                <tr>
+                                    <td>방서동(1)</td>
+                                    <td>웰니스어린이병원</td>
+                                    <td>충청북도 청주시 상당구 2순환로2031번길 6-0,<br>(방서동)</td>
+                                    <td>225-7700</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tb" id="main2Tap2">
+                            <table>
+                                <tr>
+                                    <td>관할동</td>
+                                    <td>의료기관명</td>
+                                    <td>주소</td>
+                                    <td>연락처</td>
+                                </tr>
+                                <tr>
+                                    <td>남이면(1)</td>
+                                    <td>청남연합의원.제일푸른한의원</td>
+                                    <td>청주시 서원구 남이면 척산길 5 67-18</td>
+                                    <td>295-7879</td>
+                                </tr>
+                                <tr>
+                                    <td>장성동(1)</td>
+                                    <td>청주시립요양병원</td>
+                                    <td>청주시 서원구 궁뜰로62번길 29,<br>(장성동)</td>
+                                    <td>220-8000</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">사직동(4)</td>
+                                    <td>우리소아청소년과의원</td>
+                                    <td>청주시 서원구 예체로 55,<br>(사직동, 푸르지오캐슬상가 ) 106호</td>
+                                    <td>218-0196</td>
+                                </tr>
+                                <tr>
+                                    <td>행복가정의학과의원</td>
+                                    <td>청주시 서원구 예체로 55,<br>(사직동, 푸르지오캐슬상가) 307호</td>
+                                    <td>267-8275</td>
+                                </tr>
+                                <tr>
+                                    <td>(사)대한신장복지회 대신의원</td>
+                                    <td>충청북도 청주시 서원구 사직대로 252,<br>지하1층,지상1,2층</td>
+                                    <td>295-2315</td>
+                                </tr>
+                                <tr>
+                                    <td>충청북도청주의료원</td>
+                                    <td>청주시 서원구 흥덕로 48(사직동)</td>
+                                    <td>279-2300</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="9">사창동(9)</td>
+                                    <td>코아이비인후과의원</td>
+                                    <td>청주시 서원구 사직대로 108,<br>(사창동) 하나로상호저축은행 지하1,지상1층</td>
+                                    <td>262-4300</td>
+                                </tr>
+                                <tr>
+                                    <td>정내과의원</td>
+                                    <td>청주시 서원구 사직대로123,(사창동)</td>
+                                    <td>262-6161</td>
+                                </tr>
+                                <tr>
+                                    <td>오페라연합의원</td>
+                                    <td>청주시 서원구 사직대로 132,<br>(사창동) 2~3층</td>
+                                    <td>274-9700</td>
+                                </tr>
+                                <tr>
+                                    <td>최지욱내과의원</td>
+                                    <td>청주시 서원구 사직대로 160,<br>(사창동) 두진 하트리움에덴 1.2층 121.210호</td>
+                                    <td>262-3733</td>
+                                </tr>
+                                <tr>
+                                    <td>장헌상신경외과의원</td>
+                                    <td>청주시 서원구 사직대로 90,<br>(사창동) 1,2,5층</td>
+                                    <td>276-8275</td>
+                                </tr>
+                                <tr>
+                                    <td>생생내과의원</td>
+                                    <td>청주시 서원구 사직대로 94,<br>(사창동) 2층</td>
+                                    <td>298-7000</td>
+                                </tr>
+                                <tr>
+                                    <td>조인식내과의원</td>
+                                    <td>청주시 서원구 사직대로 95 다정빌딩 2층 (사창동)</td>
+                                    <td>275-8225</td>
+                                </tr>
+                                <tr>
+                                    <td>청주복음병원</td>
+                                    <td>충청북도 청주시 서원구 사직대로 160-0</td>
+                                    <td>264-1000</td>
+                                </tr>
+                                <tr>
+                                    <td>이영두소아청소년과의원</td>
+                                    <td>청주시 서원구 사직대로 99, (사창동)</td>
+                                    <td>265-3660</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="7">모충동(7)</td>
+                                    <td>삼성가정의학과의원</td>
+                                    <td>청주시 서원구 모충로65-2,(모충동)</td>
+                                    <td>263-2227</td>
+                                </tr>
+                                <tr>
+                                    <td>참사랑의원</td>
+                                    <td>청주시 서원구 모충로 91,<br>(모충동, 크리스탈) 3층</td>
+                                    <td>274-9666</td>
+                                </tr>
+                                <tr>
+                                    <td>김병태내과의원</td>
+                                    <td>청주시 서원구 청남로2114,(모충동)</td>
+                                    <td>283-9999</td>
+                                </tr>
+                                <tr>
+                                    <td>성신의원</td>
+                                    <td>청주시 서원구 청남로 2147, (모충동) 2층</td>
+                                    <td>287-4670</td>
+                                </tr>
+                                <tr>
+                                    <td>아이엠병원</td>
+                                    <td>청주시 서원구 청남로 2140(모충동)</td>
+                                    <td>284-0675</td>
+                                </tr>
+                                <tr>
+                                    <td>배윤관의원</td>
+                                    <td>충청북도 청주시 서원구 모충로 93, (모충동) </td>
+                                    <td>274-0110</td>
+                                </tr>
+                                <tr>
+                                    <td>연세연합의원</td>
+                                    <td>충청북도 청주시 서원구 모충로104번길 5, (모충동)</td>
+                                    <td>275-5884</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="7">수곡동(7)</td>
+                                    <td>햇살가정의학과의원</td>
+                                    <td>청주시 서원구 수곡로 49,<br>(수곡동) 2층</td>
+                                    <td>298-7588</td>
+                                </tr>
+                                <tr>
+                                    <td>백석기내과의원</td>
+                                    <td>충청북도 청주시 서원구 청남로 2024,<br>(수곡동, 청남빌딩)</td>
+                                    <td>286-1932</td>
+                                </tr>
+                                <tr>
+                                    <td>전내과의원</td>
+                                    <td>청주시 서원구 청남로2094(수곡동)</td>
+                                    <td>253-9111</td>
+                                </tr>
+                                <tr>
+                                    <td>김상오비뇨기과의원</td>
+                                    <td>청주시 서원구 구룡산로 237,<br>(수곡동) 2층</td>
+                                    <td>284-6933</td>
+                                </tr>
+                                <tr>
+                                    <td>김이비인후과의원</td>
+                                    <td>청주시 서원구 구룡산로 246,<br>(수곡동) 2층</td>
+                                    <td>292-8275</td>
+                                </tr>
+                                <tr>
+                                    <td>소망가정의학과의원</td>
+                                    <td>청주시 서원구 구룡산로 321,<br>(수곡동) 2층</td>
+                                    <td>285-1112</td>
+                                </tr>
+                                <tr>
+                                    <td>김명수내과의원</td>
+                                    <td>청주시 서원구 구룡산로386,<br>(수곡동,김명수내과의원)</td>
+                                    <td>284-5356</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">산남동(3)</td>
+                                    <td>365다나아가정의학과의원</td>
+                                    <td>청주시 서원구 산남로 48,<br>(산남동, 대운프라자) 3층</td>
+                                    <td>904-8275</td>
+                                </tr>
+                                <tr>
+                                    <td>튼튼소아청소년과의원</td>
+                                    <td>청주시 서원구 산남로85,<br>(산남동,원흥빌딩)</td>
+                                    <td>292-7588</td>
+                                </tr>
+                                <tr>
+                                    <td>심규화이비인후과의원</td>
+                                    <td>청주시 서원구 산남로70번길 3, (산남동, 산남메티프라자) 302호</td>
+                                    <td>297-7577</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="9">분평동(9)</td>
+                                    <td>소망신경외과의원</td>
+                                    <td>청주시 서원구 월평로 4,<br>(분평동) 대상탑존빌딩 3층 301~303호</td>
+                                    <td>286-9119</td>
+                                </tr>
+                                <tr>
+                                    <td>본이비인후과의원</td>
+                                    <td>청주시 서원구 월평로 4,<br>(분평동,대상탑존빌딩) 203호</td>
+                                    <td>295-7575</td>
+                                </tr>
+                                <tr>
+                                    <td>유림가정의학과의원</td>
+                                    <td>청주시 서원구 월평로69,(분평동)</td>
+                                    <td>295-5001</td>
+                                </tr>
+                                <tr>
+                                    <td>서울소아청소년과의원</td>
+                                    <td>청주시 서원구 청남로 2010,<br>(분평동) 2층</td>
+                                    <td>296-8275</td>
+                                </tr>
+                                <tr>
+                                    <td>정성내과의원</td>
+                                    <td>청주시 서원구 1순환로1107번길39,<br> (분평동,슈퍼팜빌딩)</td>
+                                    <td>291-5355</td>
+                                </tr>
+                                <tr>
+                                    <td>늘푸른소아청소년과의원</td>
+                                    <td>청주시 서원구 1순환로1107번길 42,<br> (분평동, 대상빌딩) 202호</td>
+                                    <td>295-5955</td>
+                                </tr>
+                                <tr>
+                                    <td>이광래소아과의원</td>
+                                    <td>청주시 서원구 1순환로1137번길 102,<br> (분평동) 2층</td>
+                                    <td>295-3310</td>
+                                </tr>
+                                <tr>
+                                    <td>장편한내과의원</td>
+                                    <td>청주시 서원구 청남로 1994, (분평동)</td>
+                                    <td>286-8899</td>
+                                </tr>
+                                <tr>
+                                    <td>세광내과의원</td>
+                                    <td>청주시 서원구 월평로 7,<br>(분평동, 퓨전빌딩)</td>
+                                    <td>288-8275</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="6">성화동(6)</td>
+                                    <td>세종내과의원</td>
+                                    <td>청주시 서원구 서부로 1350,<br>(성화동) 203호</td>
+                                    <td>278-7500</td>
+                                </tr>
+                                <tr>
+                                    <td>청주365일의원</td>
+                                    <td>청주시 서원구 서부로 1350,<br>(성화동) 2층</td>
+                                    <td>235-7553</td>
+                                </tr>
+                                <tr>
+                                    <td>속시원한연합의원</td>
+                                    <td>청주시 서원구 신화로 34,<br>(성화동) 201호</td>
+                                    <td>231-8275</td>
+                                </tr>
+                                <tr>
+                                    <td>성화고운가정의학과의원</td>
+                                    <td>청주시 서원구 신화로32번길 2,<br>(성화동, 성화빌딩) 202호</td>
+                                    <td>233-7585</td>
+                                <tr>
+                                    <td>열린이비인후과의원</td>
+                                    <td>청주시 서원구 장전로6번길 34,<br>(성화동) 2,4층</td>
+                                    <td>236-3328</td>
+                                </tr>
+                                <tr>
+                                    <td>새빛병원</td>
+                                    <td>청주시 서원구 서부로 1350, (성화동)</td>
+                                    <td>234-7509</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="6">개신동(6)</td>
+                                    <td>전청우이비인후과의원</td>
+                                    <td>청주시 서원구 모충로 18,<br>(개신동, 드림빌딩)</td>
+                                    <td>274-7575</td>
+                                </tr>
+                                <tr>
+                                    <td>스마일가정의학과의원</td>
+                                    <td>청주시 서원구 모충로25번길 3,<br>(개신동) 2층</td>
+                                    <td>268-7533</td>
+                                </tr>
+                                <tr>
+                                    <td>최은진내과의원</td>
+                                    <td>청주시 서원구 복대로 34,<br>(개신동) 2층</td>
+                                    <td>233-8575</td>
+                                </tr>
+                                <tr>
+                                    <td>선이비인후과의원</td>
+                                    <td>청주시 서원구 경신로 31-1,<br> (스타타워빌딩, 개신동) 203호 </td>
+                                    <td>236-8700</td>
+                                </tr>
+                                <tr>
+                                    <td>엔젤가정의학과의원</td>
+                                    <td>청주시 서원구 성봉로 230-1,<br>(개신동, 휴먼빌딩) 2층</td>
+                                    <td>274-7582</td>
+                                </tr>
+                                <tr>
+                                    <td>모태안여성병원</td>
+                                    <td>청주시 서원구 복대로17번길 57-0</td>
+                                    <td>272-0001</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tb" id="main2Tap3">
+                            <table>
+                                <tr>
+                                    <td>관할동</td>
+                                    <td>의료기관명</td>
+                                    <td>주소</td>
+                                    <td>연락처</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="22">복대동(22)</td>
+                                    <td>(사)인구보건복지협회 충북세종지회가족보건의원</td>
+                                    <td>청주시 흥덕구 내수동로 20</td>
+                                    <td>270-5900</td>
+                                </tr>
+                                <tr>
+                                    <td>365열린가정의학과의원</td>
+                                    <td>청주시 흥덕구 진재로 51, 3층</td>
+                                    <td>239-4226</td>
+                                </tr>
+                                <tr>
+                                    <td>곽내과의원</td>
+                                    <td>청주시 흥덕구 복대로 143,<br>(복대동, 덕일아파트상가) 아동201호</td>
+                                    <td>232-9078</td>
+                                </tr>
+                                <tr>
+                                    <td>김앤박내과의원</td>
+                                    <td>청주시 흥덕구 복대로 179</td>
+                                    <td>233-0429</td>
+                                </tr>
+                                <tr>
+                                    <td>박남규내과의원</td>
+                                    <td>청주시 흥덕구 사직대로 68</td>
+                                    <td>277-8275</td>
+                                </tr>
+                                <tr>
+                                    <td>박윤상외과의원</td>
+                                    <td>청주시 흥덕구 사직대로 66</td>
+                                    <td>274-5005</td>
+                                </tr>
+                                <tr>
+                                    <td>서울아동병원</td>
+                                    <td>청주시 흥덕구 가로수로 1317</td>
+                                    <td>221-1122</td>
+                                </tr>
+                                <tr>
+                                    <td>수이비인후과의원</td>
+                                    <td>청주시 흥덕구 대농로 17,<br>지웰시티몰 321호</td>
+                                    <td>231-8844</td>
+                                </tr>
+                                <tr>
+                                    <td>스마일재활의학과의원</td>
+                                    <td>청주시 흥덕구 대농로 50,<br>302호, 303호</td>
+                                    <td>284-7533</td>
+                                </tr>
+                                <tr>
+                                    <td>양승덕이비인후과의원</td>
+                                    <td>청주시 흥덕구 가로수로 1340-1, 2층</td>
+                                    <td>234-6090</td>
+                                </tr>
+                                <tr>
+                                    <td>연세이비인후과의원</td>
+                                    <td>청주시 흥덕구 사직대로 14,<br>금관빌딩 1층</td>
+                                    <td>268-5925</td>
+                                </tr>
+                                <tr>
+                                    <td>의료법인<br>송암의료재단<br>마이크로병원</td>
+                                    <td>청주시 흥덕구 사직대로 26-0</td>
+                                    <td>265-0071</td>
+                                </tr>
+                                <tr>
+                                    <td>의료법인송암의료재단
+                                        <br>마이크로요양병원</td>
+                                    <td>청주시 흥덕구 사직대로 26-0</td>
+                                    <td>265-0051</td>
+                                </tr>
+                                <tr>
+                                    <td>이솜이비인후과의원</td>
+                                    <td>청주시 흥덕구 대농로 47, 405호</td>
+                                    <td>234-5079</td>
+                                </tr>
+                                <tr>
+                                    <td>이영희외과의원</td>
+                                    <td>청주시 흥덕구 사직대로 30</td>
+                                    <td>265-4408</td>
+                                </tr>
+                                <tr>
+                                    <td>조궁희정형외과의원</td>
+                                    <td>청주시 흥덕구 복대로 186, 2층</td>
+                                    <td>234-1294</td>
+                                </tr>
+                                <tr>
+                                    <td>청주기독의원</td>
+                                    <td>청주시 흥덕구 증안로 54, 2층</td>
+                                    <td>235-7771</td>
+                                </tr>
+                                <tr>
+                                    <td>푸른가정의학과의원</td>
+                                    <td>충청북도 청주시 흥덕구 증안로 24</td>
+                                    <td>237-1175</td>
+                                </tr>
+                                <tr>
+                                    <td>홍소아청소년과의원</td>
+                                    <td>청주시 흥덕구 복대로 165</td>
+                                    <td>235-8009</td>
+                                </tr>
+                                <tr>
+                                    <td>아이안소아청소년과의원</td>
+                                    <td>청주시 흥덕구 대농로 39</td>
+                                    <td>234-5275</td>
+                                </tr>
+                                <tr>
+                                    <td>우리아이소아청소년과의원</td>
+                                    <td>청주시 흥덕구 대농로 66<br>MJ 메디컬센터 5층</td>
+                                    <td>236-7666</td>
+                                </tr>
+                                <tr>
+                                    <td>서청주하나이비인후과</td>
+                                    <td>청주시 흥덕구 대농로 48</td>
+                                    <td>236-5075</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="12">가경동(12)</td>
+                                    <td>두리이비인후과의원</td>
+                                    <td>청주시 흥덕구 가경로 8,<br>태양빌딩 3층,4층,7층</td>
+                                    <td>233-2275</td>
+                                </tr>
+                                <tr>
+                                    <td>문이비인후과의원</td>
+                                    <td>청주시 흥덕구 풍산로 26 (대한빌딩)</td>
+                                    <td>231-9569</td>
+                                </tr>
+                                <tr>
+                                    <td>성모정형외과의원</td>
+                                    <td>청주시 흥덕구 풍산로 42,<br>세진빌딩 1,2층</td>
+                                    <td>233-9119</td>
+                                </tr>
+                                <tr>
+                                    <td>신가정의학과의원</td>
+                                    <td>청주시 흥덕구 가경로 72,<br>수정아파트상가 2층</td>
+                                    <td>232-6555</td>
+                                </tr>
+                                <tr>
+                                    <td>양웅길내과의원</td>
+                                    <td>청주시 흥덕구 풍년로 197</td>
+                                    <td>234-6300</td>
+                                </tr>
+                                <tr>
+                                    <td>유성곤가정의학과의원</td>
+                                    <td>청주시 흥덕구 서현북로 64, 2층</td>
+                                    <td>239-8275</td>
+                                </tr>
+                                <tr>
+                                    <td>의료법인한마음
+                                        <br>의료재단하나병원</td>
+                                    <td>청주시 흥덕구 2순환로 1262</td>
+                                    <td>230-6114</td>
+                                </tr>
+                                <tr>
+                                    <td>장사랑박종범내과의원</td>
+                                    <td>청주시 흥덕구 풍산로 18, 4층</td>
+                                    <td>231-0082</td>
+                                </tr>
+                                <tr>
+                                    <td>정덕용의원</td>
+                                    <td>청주시 흥덕구 풍년로 26,<br>명인플러스 204호</td>
+                                    <td>232-6944</td>
+                                </tr>
+                                <tr>
+                                    <td>조엘소아청소년과의원</td>
+                                    <td>청주시 흥덕구 서부로 1303, 2층</td>
+                                    <td>235-8575</td>
+                                </tr>
+                                <tr>
+                                    <td>한미내과의원</td>
+                                    <td>청주시 흥덕구 가경로 9-2</td>
+                                    <td>237-0500</td>
+                                </tr>
+                                <tr>
+                                    <td>조은신경외과</td>
+                                    <td>청주시 흥덕구 풍산로48번길 6</td>
+                                    <td>234-5321</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="8">봉명동(8)</td>
+                                    <td>김태룡내과의원</td>
+                                    <td>청주시 흥덕구 1순환로 511-1, 2층</td>
+                                    <td>274-3363</td>
+                                </tr>
+                                <tr>
+                                    <td>녹십자외과의원</td>
+                                    <td>청주시 흥덕구 직지대로 575</td>
+                                    <td>263-5533</td>
+                                </tr>
+                                <tr>
+                                    <td>메디코의원</td>
+                                    <td>청주시 흥덕구 1순환로 508, 2층</td>
+                                    <td>272-0157</td>
+                                </tr>
+                                <tr>
+                                    <td>미래소아청소년과의원</td>
+                                    <td>청주시 흥덕구 백봉로223번길 3</td>
+                                    <td>272-3399</td>
+                                </tr>
+                                <tr>
+                                    <td>서울연합의원</td>
+                                    <td>청주시 흥덕구 직지대로 667</td>
+                                    <td>274-8274</td>
+                                </tr>
+                                <tr>
+                                    <td>윤성열내과의원</td>
+                                    <td>청주시 흥덕구 직지대로 571</td>
+                                    <td>268-6008</td>
+                                </tr>
+                                <tr>
+                                    <td>자모산부인과의원</td>
+                                    <td>청주시 흥덕구 1순환로 511</td>
+                                    <td>264-4123</td>
+                                </tr>
+                                <tr>
+                                    <td>한국건강관리협회 충북세종지부건강증진의원</td>
+                                    <td>청주시 흥덕구 직지대로 631</td>
+                                    <td>297-1100</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">운천동(4)</td>
+                                    <td>손범수달빛의원</td>
+                                    <td>청주시 흥덕구 사운로 254</td>
+                                    <td>276-5115</td>
+                                </tr>
+                                <tr>
+                                    <td>의료법인 한미의료재단
+                                        김숙자소아청소년병원</td>
+                                    <td>청주시 흥덕구 직지대로 745</td>
+                                    <td>263-8280</td>
+                                </tr>
+                                <tr>
+                                    <td>한빛연합의원</td>
+                                    <td>청주시 흥덕구 사운로 292, 6층</td>
+                                    <td>277-6050</td>
+                                </tr>
+                                <tr>
+                                    <td>권대현소아과</td>
+                                    <td>청주시 흥덕구 사운로 292</td>
+                                    <td>260-5582</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">강서동(4)</td>
+                                    <td>강서성모의원</td>
+                                    <td>청주시 흥덕구 가로수로 1164번길 7-2, 2층</td>
+                                    <td>236-7582</td>
+                                </tr>
+                                <tr>
+                                    <td>닥터연이비인후과의원</td>
+                                    <td>청주시 흥덕구 2순환로 1234, 301호</td>
+                                    <td>239-2700</td>
+                                </tr>
+                                <tr>
+                                    <td>미래이비인후과의원</td>
+                                    <td>청주시 흥덕구 2순환로 1240, MK빌딩 4층</td>
+                                    <td>236-9275</td>
+                                </tr>
+                                <tr>
+                                    <td>준소아청소년과의원</td>
+                                    <td>청주시 흥덕구 2순환로 1240, 3층</td>
+                                    <td>238-8338</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">오송읍(4)</td>
+                                    <td>365더사랑의원</td>
+                                    <td>청주시 흥덕구 오송읍 오송생명로 194, 204호</td>
+                                    <td>233-0486</td>
+                                </tr>
+                                <tr>
+                                    <td>재단법인베스티안재단 베스티안병원 </td>
+                                    <td>청주시 흥덕구 오송읍 오송생명1로 191-0</td>
+                                    <td>910-7575</td>
+                                </tr>
+                                <tr>
+                                    <td>성모정형외과의원</td>
+                                    <td>청주시 흥덕구 오송읍 오송생명로 208-8, 3층</td>
+                                    <td>238-3550</td>
+                                </tr>
+                                <tr>
+                                    <td>휴이비인후과의원</td>
+                                    <td>청주시 흥덕구 오송읍 오송생명로 206, 백천빌딩 4층</td>
+                                    <td>237-0603</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">강내면(2)</td>
+                                    <td>혜성의원</td>
+                                    <td>청주시 흥덕구 강내면 태성탑연로 457</td>
+                                    <td>236-7012</td>
+                                </tr>
+                                <tr>
+                                    <td>참좋은의원</td>
+                                    <td>청주시 흥덕구 강내면 탑연월곡길 80</td>
+                                    <td>234-3016</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">옥산면(3)</td>
+                                    <td>고려의원</td>
+                                    <td>청주시 흥덕구 옥산면 옥산시내1길 44</td>
+                                    <td>260-4006</td>
+                                </tr>
+                                <tr>
+                                    <td>늘조은가정의학과의원</td>
+                                    <td>청주시 흥덕구 옥산면 오송가락로 1061,303, 304호</td>
+                                    <td>266-6878</td>
+                                </tr>
+                                <tr>
+                                    <td>옥산의원</td>
+                                    <td>청주시 흥덕구 옥산면 옥산시내1길 26</td>
+                                    <td>269-3094</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">비하동(3)</td>
+                                    <td>강서서울연합의원</td>
+                                    <td>청주시 흥덕구 비하로 1, 2층</td>
+                                    <td>234-0075</td>
+                                </tr>
+                                <tr>
+                                    <td>청주현대병원</td>
+                                    <td>청주시 흥덕구 비하로 65</td>
+                                    <td>237-2114</td>
+                                </tr>
+                                <tr>
+                                    <td>서부유림의원</td>
+                                    <td>청주시 흥덕구 2순환 1050번길 12, 2층</td>
+                                    <td>236-5975</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">송절동(2)</td>
+                                    <td>속시원한내과의원</td>
+                                    <td>청주시 흥덕구 송화로150번길 21, 302호</td>
+                                    <td>262-5559</td>
+                                </tr>
+                                <tr>
+                                    <td>조은소아청소년과의원</td>
+                                    <td>청주시 흥덕구 송화로 172</td>
+                                    <td>215-7585</td>
+                                </tr>
+                                <tr>
+                                    <td>송정동(1)</td>
+                                    <td>대한산업보건협회부설 충북의원</td>
+                                    <td>청주시 흥덕구 직지대로 397</td>
+                                    <td>263-7137</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tb" id="main2Tap4">
+                            <table>
+                                <tr>
+                                    <td>관할동</td>
+                                    <td>의료기관명</td>
+                                    <td>주소</td>
+                                    <td>연락처</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="5">내수읍(5)</td>
+                                    <td>내수연합의원</td>
+                                    <td>청주시 청원구 내수읍 내수로 733-1</td>
+                                    <td>215-5540</td>
+                                </tr>
+                                <tr>
+                                    <td>새서울내과의원</td>
+                                    <td>청주시 청원구 내수읍 내수로 725</td>
+                                    <td>213-3393</td>
+                                </tr>
+                                <tr>
+                                    <td>윤가정의학과의원</td>
+                                    <td>청주시 청원구 내수읍 은곡묵방길 28,
+                                        (덕일한마음아파트상가) 2층(203호)</td>
+                                    <td>213-6880</td>
+                                </tr>
+                                <tr>
+                                    <td>제일가정의학과의원</td>
+                                    <td>청주시 청원구 내수읍 내수로 643, 2층</td>
+                                    <td>215-7500</td>
+                                </tr>
+                                <tr>
+                                    <td>중앙가정의학과의원</td>
+                                    <td>청주시 청원구 내수읍 마산5길 15-16</td>
+                                    <td>213-8795</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="12">오창읍(12)</td>
+                                    <td>의료법인 라온의료재단 오창호수병원</td>
+                                    <td>청주시 청원구 오창읍 중심상업1로 54</td>
+                                    <td>214-1004</td>
+                                </tr>
+                                <tr>
+                                    <td>늘푸른연합의원</td>
+                                    <td>청주시 청원구 오창읍 오창중앙로 123-2</td>
+                                    <td>241-9995</td>
+                                </tr>
+                                <tr>
+                                    <td>아이맘심소아청소년과의원</td>
+                                    <td>청주시 청원구 오창읍 오창중앙로 47-16,
+                                        (우림필유 2차아파트 상가) 201호</td>
+                                    <td>241-8275</td>
+                                </tr>
+                                <tr>
+                                    <td>엔젤연합내과의원</td>
+                                    <td>청주시 청원구 오창읍 중심상업로 31-4, (엔젤오메가) 4층</td>
+                                    <td>214-7582</td>
+                                </tr>
+                                <tr>
+                                    <td>오창중앙병원</td>
+                                    <td>청주시 청원구 오창읍 중부로 683 오창중앙병원</td>
+                                    <td>218-0119</td>
+                                </tr>
+                                <tr>
+                                    <td>하나소아청소년과의원</td>
+                                    <td>청주시 청원구 오창읍 2산단로 140, 201호</td>
+                                    <td>217-5275</td>
+                                </tr>
+                                <tr>
+                                    <td>한사랑메디칼의원</td>
+                                    <td>청주시 청원구 오창읍 과학산업3로 202-7 각리 640-4</td>
+                                    <td>215-2152</td>
+                                </tr>
+                                <tr>
+                                    <td>현대의원</td>
+                                    <td>청주시 청원구 오창읍 팔결로 706, 2층</td>
+                                    <td>217-9889</td>
+                                </tr>
+                                <tr>
+                                    <td>두리이비인후과의원</td>
+                                    <td>청주시 청원구 오창읍 중심상업로 31-4, 2층</td>
+                                    <td>253-2275</td>
+                                </tr>
+                                <tr>
+                                    <td>키즈웰소아청소년과의원</td>
+                                    <td>청주시 청원구 오창읍 오창대로 315, 208호</td>
+                                    <td>217-1722</td>
+                                </tr>
+                                <tr>
+                                    <td>삼성서울연합의원</td>
+                                    <td>청주시 청원구 오창읍 2산단로 142, 202호</td>
+                                    <td>213-1115</td>
+                                </tr>
+                                <tr>
+                                    <td>오창드림이비인후과의원</td>
+                                    <td>청주시 청원구 오창읍 2산단로 142, 301호</td>
+                                    <td>217-3100</td>
+                                </tr>
+                                <tr>
+                                    <td>우암동(1)</td>
+                                    <td>현대연합의원</td>
+                                    <td>청주시 청원구 직지대로 874-2, 2층(우암동, 상당빌딩)</td>
+                                    <td>223-7577</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="7">내덕동(7)</td>
+                                    <td>첼로병원</td>
+                                    <td>청주시 청원구 향군로 132-0</td>
+                                    <td>211-9090</td>
+                                </tr>
+                                <tr>
+                                    <td>삼성연합의원</td>
+                                    <td>청주시 청원구 중앙로 217</td>
+                                    <td>252-9311</td>
+                                </tr>
+                                <tr>
+                                    <td>제일신경과의원</td>
+                                    <td>청주시 청원구 1순환로330번길 34 2층</td>
+                                    <td>224-9933</td>
+                                </tr>
+                                <tr>
+                                    <td>주성의원</td>
+                                    <td>청주시 청원구 상당로 307</td>
+                                    <td>255-2010</td>
+                                </tr>
+                                <tr>
+                                    <td>내덕중앙의원</td>
+                                    <td>청주시 청원구 안덕벌로 40, 2층</td>
+                                    <td>211-5942</td>
+                                </tr>
+                                <tr>
+                                    <td>하나이비인후과의원</td>
+                                    <td>청주시 청원구 상당로 291</td>
+                                    <td>254-5075</td>
+                                </tr>
+                                <tr>
+                                    <td>권주형정형외과</td>
+                                    <td>청주시 청원구 상당로 307 농협중앙회 주성메디칼 5층</td>
+                                    <td>255-5080</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="12">율량 사천동(12)</td>
+                                    <td>조은메디컬의원</td>
+                                    <td>청주시 청원구 율봉로 142, (율량동) 아름빌딩 2층</td>
+                                    <td>213-7585</td>
+                                </tr>
+                                <tr>
+                                    <td>김메디컬의원</td>
+                                    <td>청주시 청원구 율봉로 97, (율량동) 베리돈타워 5층 502호 </td>
+                                    <td>216-9960</td>
+                                </tr>
+                                <tr>
+                                    <td>다솜소아청소년과의원</td>
+                                    <td>청주시 청원구 새터로 172, (사천동)</td>
+                                    <td>211-7089</td>
+                                </tr>
+                                <tr>
+                                    <td>더본소아청소년과의원</td>
+                                    <td>청주시 청원구 사뜸로 54, (율량동) 202호</td>
+                                    <td>715-6100</td>
+                                </tr>
+                                <tr>
+                                    <td>서울이비인후과의원</td>
+                                    <td>청주시 청원구 공항로 126, (율량동) 3층</td>
+                                    <td>214-8275</td>
+                                </tr>
+                                <tr>
+                                    <td>속편한내과의원</td>
+                                    <td>청주시 청원구 공항로 126, (율량동) 2층</td>
+                                    <td>213-4411</td>
+                                </tr>
+                                <tr>
+                                    <td>이경은소아청소년과의원</td>
+                                    <td>청주시 청원구 사뜸로 37, (율량동) 2층</td>
+                                    <td>218-5959</td>
+                                </tr>
+                                <tr>
+                                    <td>이성웅외과의원</td>
+                                    <td>청주시 청원구 충청대로 121, (율량동)</td>
+                                    <td>212-5406</td>
+                                </tr>
+                                <tr>
+                                    <td>정진영내과의원</td>
+                                    <td>청주시 청원구 사뜸로 59, (율량동)</td>
+                                    <td>212-3175</td>
+                                </tr>
+                                <tr>
+                                    <td>김민옥내과의원</td>
+                                    <td>청주시 청원구 공항로 150번길 5, 2층(율량동)</td>
+                                    <td>217-7114</td>
+                                </tr>
+                                <tr>
+                                    <td>성누가의원</td>
+                                    <td>청주시 청원구 공항로 150번길 51-7, 203호</td>
+                                    <td>212-5117</td>
+                                </tr>
+                                <tr>
+                                    <td>장이비인후과의원</td>
+                                    <td>청주시 청원구 공항로 162-2, 2층</td>
+                                    <td>216-2277</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">주중동(2)</td>
+                                    <td>청주성모병원</td>
+                                    <td>청주시 청원구 주성로 173-19, (주중동)</td>
+                                    <td>219-8000</td>
+                                </tr>
+                                <tr>
+                                    <td>속튼튼내과의원</td>
+                                    <td>청주시 청원구 충청대로 179, 5층 402호</td>
+                                    <td>218-3363</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4"></td>
+                                    <td>아이웰어린이병원</td>
+                                    <td>청주시 청원구 주성로 273-0, (주성동)</td>
+                                    <td>288-3535</td>
+                                </tr>
+                                <tr>
+                                    <td>이내과의원</td>
+                                    <td>청주시 청원구 율량로 96, (주성동, 율량센터프라자) 302호</td>
+                                    <td>292-7553</td>
+                                </tr>
+                                <tr>
+                                    <td>미리내의원</td>
+                                    <td>청주시 청원구 청청대로 168, 5층 502호</td>
+                                    <td>217-5242</td>
+                                </tr>
+                                <tr>
+                                    <td>드림이비인후과의원</td>
+                                    <td>청주시 청원구 주성로 269, 3층 301호</td>
+                                    <td>214-3993</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main m3" id="con3">
+            <div class="mainLeft">
+                <p class="subject">코로나 19백신·치료제 정보</p>
+                <div class="bar"></div>
+                <div class="swiper mySwiper2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide one">
+                            <img src="../images/pc/vc1.jpg" alt="백신 플랫폼 종류와 특성">
+                        </div>
+                        <div class="swiper-slide two">
+                            <img src="../images/pc/vc2.jpg" alt="백신 예방원리 및 종류">
+                        </div>
+                        <div class="swiper-slide three">
+                            <img src="../images/pc/vc3.jpg" alt="치료제 종류와 작용 원리">
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+            <div class="mainRight">
+                <p class="subject">백신접종 Q&A</p>
+                <div class="bar"></div>
+                <div class="faq">
+                    <div class="question">
+                        코로나바이러스감염증-19 백신에는 어떤 종류가 있나요?
+                    </div>
+                    <div class="answer">
+                        전 세계 여러 나라에서 mRNA나 DNA를 이용한 백신, 바이러스 벡터 백신 및 불활성화 백신, 재조합 백신, 바이러스 유사입자 백신 등 여러 종류의 백신을 개발 중에 있습니다.
+                        <br>우리나라는 mRNA백신(화이자·모더나社), 바이러스 벡터(아스트라제네카·얀센社) 백신, 합성항원백신(노바백스社)을 도입할 예정입니다.
+                    </div>
+                    <div class="question">
+                        코로나19 예방접종은 어떻게 코로나바이러스감염증-19를 예방하나요?
+                    </div>
+                    <div class="answer">
+                        코로나19 백신 물질이 우리 몸에 들어와 면역세포인 B세포와 T세포를 자극합니다. B세포는 코로나19에 대항하는 항체를 만들고, 면역세포 중 일부는 기억세포로 남습니다.
+                        <br>이후 우리 몸에 코로나바이러스-19가 침투했을 때 예방접종을 통해 만들어진 항체와 기억 세포가 바이러스 침입에 빠르게 반응하여 코로나바이러스-19 감염증을 예방합니다.
+                    </div>
+                    <div class="question">
+                        코로나19 백신 종류별 효과성은 어떻게 되나요?
+                    </div>
+                    <div class="answer">
+                        코로나19 백신의 효과성은 개발기간이 짧고 사용기간이 길지 않아 서로 직접적으로 비교하는 것은 적절치 않습니다.
+                        <br>참고로, WHO에서 권고하는 코로나19 백신 임상 유효성 기준은 50% 이상으로 화이자社, 모더나社, 아스트라제네카社등 3개社의 코로나19 백신의 결과는 모두 이를 상회합니다.<br>
+                        * 독감백신 효과 60%, 대상포진 효과(60세이상) 51%</div>
+                    <div class="question">
+                        mRNA 백신이 우리 몸의 유전자에 영향을 미칠 수 있나요?
+                    </div>
+                    <div class="answer">
+                        아닙니다. 핵산백신(mRNA)는 체내에서 몇 시간 후에 분해됩니다. 주사로 주입된 mRNA는 우리 몸의 세포 내 유전 물질(DNA)이 포함되어 있는 세포핵으로 들어갈 수 없기 때문에 우리 몸의 유전자와 상호 작용할 수 없습니다.
+                    </div>
+                    <div class="question">
+                        코로나19 예방접종 후 면역 획득까지는 얼마나 걸리나요?
+                    </div>
+                    <div class="answer">
+                        예방 접종 후 방어항체가 형성되는 데는 2주~3주 이상 걸립니다. 최대 백신 효과를 위해 각 백신별 권장기간 내에 2차 접종을 완료하는 것이 매우 중요합니다.
+                    </div>
+                    <div class="question">
+                        코로나19 예방접종을 완료해도 코로나바이러스감염증-19에 걸릴 수도 있나요?
+                    </div>
+                    <div class="answer">
+                        코로나19 예방접종 후 면역이 형성되지 않거나 면역이 형성되기 전에 또는 시간이 흘러 형성된 면역의 효과가 떨어지면 코로나19에 감염될 수 있습니다.
+                        <br>접종을 했더라도 마스크 착용, 손씻기, 거리두기 등 방역수칙을 준수해야 합니다.
+                    </div>
+                    <div class="question">
+                        코로나19 예방접종 후에 헌혈을 해도 되나요?
+                    </div>
+                    <div class="answer">
+                        코로나19 예방접종 시, 매회 접종 시마다 예방접종이로부터 7일간 헌혈에 참여하지 않습니다. 또한, 예방접종 후 이상반응이 있는 경우 증상이 사라진 날로부터 7일간 헌혈 참여를 하지 않습니다.
+                    </div>
+                    <div class="question">
+                        코로나19 예방접종은 왜 해야 하나요?
+                    </div>
+                    <div class="answer">
+                        사회적 거리두기, 마스크 착용 등은 바이러스와 접촉을 줄여 감염을 예방하는 반면, 예방접종은 우리 몸이 바이러스에 대항하는 면역력을 길러 감염을 예방합니다. 예방접종을 통해 개인은 코로나19 감염 또는 중증 코로나19 감염을 예방할 수 있습니다. 더 나아가 우리나라 인구 중 일정 수준 이상이 접종할 경우 집단면역을 형성하여 대규모 집단유행을 억제할 수 있습니다.
+                    </div>
+                    <div class="question">
+                        우리나라의 코로나19 예방접종 목표는 무엇인가요?
+                    </div>
+                    <div class="answer">
+                        코로나19 예방접종을 통해 ① 고령자 등 코로나19 취약집단의 감염과 사망 감소, ② 보건의료체계 및 국가의 필수 기능 유지, ③ 지역사회 내 전파 감소를 목표로 합니다. 이를 위해 전 국민의 70% 접종률 달성을 목표로 합니다.
+                    </div>
+                    <div class="question">
+                        코로나19 예방접종 목표가 100%가 아닌 70%인 이유는 무엇인가요?
+                    </div>
+                    <div class="answer">
+                        코로나19 예방접종은 개인의 자율적인 선택으로 본인 동의 기반 하에 접종 추진 예정입니다.
+                        <br>그러나 집단면역*을 확보하여 지역사회 전파를 차단하고, 일상을 회복하기 위해 최대한 권고를 통해서 70% 접종률 달성을 목표로 합니다.
+                        <br>* 국민 상당수가 감염병 면역력을 가짐으로써 대규모 전파를 막아 면역력이 없는 국민도 간접적으로 보호를 받는 상태
+                    </div>
+                    <div class="question">
+                        공무 및 중요 경제활동으로 긴급출국을 위해 예방접종을 맞아야 하는데 절차가 어떻게 되나요?
+                    </div>
+                    <div class="answer">
+                        중요 경제활동으로 긴급출국 할 경우 소관부서(산업,중기,외교부 등)에서 출국 사유별 필수성을 검토하고, 입국 국가의 접종증명서 요구 등을 확인하여 질병관리청에 승인을 요구하게 될 것입니다.
+                        <br>- 3월 17일부터 업무 소관부처 또는 기업인 출입국 종합지원센터를 통해 신청을 받아 각 부처 심사 후 질병관리청 승인을 거쳐 접종 대상자를 선정하고 있습니다.
+                    </div>
+                    <div class="question">
+                        내 접종 시기에 맞지 못하면 순서가 밀리게 되나요?
+                    </div>
+                    <div class="answer">
+                        예약 후 접종 당일 발열(37.5℃ 이상) 등 급성병증이 있는 경우, 기저질환, 당일 건강상태 등을 고려하여 예진의사의 판단에 따라 예방접종 여부가 결정됩니다. 불가피하게 당일 예방접종이 어려운 경우, 의료기관에서 재 예약을 하게 됩니다.
+                        <br>단, 백신 접종을 거부하여 예방접종을 기한 내 접종 동의를 하지 않은 예방접종 순위는 후 순위가 되는 것이 원칙입니다.
+                        <br>* 접종 당일 발열 등으로 제외되었던 대상자는 1차 접종기간 내 접종 완료
+                    </div>
+                    <div class="question">
+                        예약 접종일에 예약 부도(No Show)할 경우 대책은 어떻게 되나요?
+                    </div>
+                    <div class="answer">
+                        예방접종일 당일 발열(37.5℃ 이상) 등 급성병증이 있는 경우에는 회복 후 접종을 위해 사전 연락한 경우에는 예약 조정 가능합니다.
+                        <br>- 단, 예방접종 당일 예약부도(No Show) 할 경우 예방접종 순위는 후 순위가 되는 것이 원칙입니다.
+                    </div>
+                    <div class="question">
+                        외국인 등록번호가 있는 외국인입니다. 접종이 가능한가요?
+                    </div>
+                    <div class="answer">
+                        네, 접종 가능합니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="a2">
+            <div class="box1">
+                <p>확진자 현황</p>
+                <div></div>
+                <p>방문자를 찾습니다</p>
+            </div>
+            <div class="box2">
+                <p>청주시 코로나 종합지원 대책</p>
+                <div></div>
+                <div class="list">진행중
+                    <p>- 저소득층 추가 국민지원금</p>
+                    <p>- 소상공인 희망회복자금</p>
+                </div>
+                <div class="list">예정
+                    <p>- 코로나 상생 국민지원금</p>
+                    <p>- 소상공인 손실보상</p>
+                    <p>- 상생소비지원금</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="../js/cj_corona_dashboard.js"></script>
+</body>
+
+</html>
