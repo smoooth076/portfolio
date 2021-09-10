@@ -38,63 +38,6 @@
  new numberCounter("count5", 123456);
  new numberCounter("count6", 1234);
 
- $(document).ready(function() {
-     //a1 메뉴
-     $(".menu").click(function() {
-         $(this).next(".sub").stop().slideToggle(400);
-         $(this).toggleClass('on').siblings().removeClass('on');
-         $(this).next(".sub").siblings(".sub").slideUp(300);
-     });
-     //탭 메뉴
-     $(".a1menu").click(function() {
-         $("#" + $(this).data('id')).addClass('on').siblings().removeClass('on');
-         map.relayout();
-         map.setCenter(new kakao.maps.LatLng(36.635981, 127.491302))
-     });
-     //위탁의료기관 탭메뉴
-     $(".bt button").click(function() {
-         $(this).addClass('on').siblings().removeClass('on');
-         $("#" + $(this).data('id')).addClass('on').siblings().removeClass('on');
-     });
-     //m3 faq 
-     $(".question").click(function() {
-         $(this).next(".answer").stop().slideToggle(400);
-         $(this).toggleClass('on').siblings().removeClass('on');
-         $(this).next(".answer").siblings(".answer").slideUp(300);
-     });
-     //news
-     $.ajax({
-        method: "GET",
-        url: "https://dapi.kakao.com/v2/search/web",
-        data: {
-            query: '코로나19 청주 기자',
-            'size': 5
-        },
-        headers: { Authorization: "KakaoAK 5eeed208981be93e64e7308603e61019" }
-    })
-    .done(function(news) {
-        // console.log(news);
-        $(".newsresult > *").hide(); // tbody의 모든 내역을 감추기
-        const newsresult = $(".newsresult");
-
-        // 결과 5개 출력
-        for (let i in news.documents) {
-            let listNum = Number(i)+1;
-            const extractSpanPattern = /<(\/b|b)([^>]*)>/gi; // 태그 선택 정규식
-            let articleTitle = news.documents[i].title.replace(extractSpanPattern, ''); // <b>태그 제거
-            let articleURL = news.documents[i].url;
-            let articleFullDate = news.documents[i].datetime;
-            let articleDate = articleFullDate.slice(0, 10);
-            newsresult.append(`
-            <tr>
-                <td>${listNum}</td>
-                <td><a href="${articleURL}" target="_blank">${articleTitle}</a></td>
-                <td>${articleDate}</td>
-            </tr>
-        `);
-        }
-    })
- });
 
  //main2 지도 
  var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
@@ -263,3 +206,60 @@
          ]
      }]
  });
+ $(document).ready(function() {
+    //a1 메뉴
+    $(".menu").click(function() {
+        $(this).next(".sub").stop().slideToggle(400);
+        $(this).toggleClass('on').siblings().removeClass('on');
+        $(this).next(".sub").siblings(".sub").slideUp(300);
+    });
+    //탭 메뉴
+    $(".a1menu").click(function() {
+        $("#" + $(this).data('id')).addClass('on').siblings().removeClass('on');
+        map.relayout();
+        map.setCenter(new kakao.maps.LatLng(36.635981, 127.491302))
+    });
+    //위탁의료기관 탭메뉴
+    $(".bt button").click(function() {
+        $(this).addClass('on').siblings().removeClass('on');
+        $("#" + $(this).data('id')).addClass('on').siblings().removeClass('on');
+    });
+    //m3 faq 
+    $(".question").click(function() {
+        $(this).next(".answer").stop().slideToggle(400);
+        $(this).toggleClass('on').siblings().removeClass('on');
+        $(this).next(".answer").siblings(".answer").slideUp(300);
+    });
+    //news
+    $.ajax({
+       method: "GET",
+       url: "https://dapi.kakao.com/v2/search/web",
+       data: {
+           query: '코로나19 청주 기자',
+           'size': 5
+       },
+       headers: { Authorization: "KakaoAK 5eeed208981be93e64e7308603e61019" }
+   })
+   .done(function(news) {
+       // console.log(news);
+       $(".newsresult > *").hide(); // tbody의 모든 내역을 감추기
+       const newsresult = $(".newsresult");
+
+       // 결과 5개 출력
+       for (let i in news.documents) {
+           let listNum = Number(i)+1;
+           const extractSpanPattern = /<(\/b|b)([^>]*)>/gi; // 태그 선택 정규식
+           let articleTitle = news.documents[i].title.replace(extractSpanPattern, ''); // <b>태그 제거
+           let articleURL = news.documents[i].url;
+           let articleFullDate = news.documents[i].datetime;
+           let articleDate = articleFullDate.slice(0, 10);
+           newsresult.append(`
+           <tr>
+               <td>${listNum}</td>
+               <td><a href="${articleURL}" target="_blank">${articleTitle}</a></td>
+               <td>${articleDate}</td>
+           </tr>
+       `);
+       }
+   })
+});
