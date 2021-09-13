@@ -17,7 +17,17 @@ $(function() {
         centerMode: true,
         focusOnSelect: true,
         // verticalSwiping: true,
-        vertical: true
+        vertical: true,
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                vertical: false
+              }
+            }
+        ]
     });
     $(".menu p").each(function() {
         var thisOffset = $("." + $(this).data('id')).offset().top;
@@ -42,4 +52,12 @@ $(function() {
                 console.log('전송실패', error);
             });
     });
+    if ($(window).width() < 640) {
+        $(".mMenu").click(function() {
+            $(".menu").addClass("on");
+        });
+        $(".mClose").click(function() {
+            $(".menu").removeClass("on");
+        });
+    };
 });

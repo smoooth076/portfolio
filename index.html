@@ -3,12 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
     <title>It's HJ</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="../portfolio/css/portfolioPC.css" />
+    <link rel="stylesheet" type="text/css" href="../css/portfolioPC.css" />
+    <link rel="stylesheet" media="all and (max-width: 1024px)" type="text/css" href="../css/portfolioT.css">
+    <link rel="stylesheet" media="all and (max-width: 640px)" type="text/css" href="../css/portfolioM.css">
 </head>
 
 <body>
@@ -20,7 +24,9 @@
         <div class="logo">
             <p> It's<br>HJ</p>
         </div>
+        <i class="fas fa-bars mMenu"></i>
         <div class="menu">
+            <i class="fas fa-angle-right mClose"></i>
             <p data-id="top">
                 <span></span>
                 MAIN
@@ -47,7 +53,7 @@
         <p class="typing1">Hello!</p>
         <P class="typing2">It's HJ</P>
         <p>Web publishing portfolio</p>
-        <img src="../portfolio/images/portfolio/hand.png" alt="손이모지">
+        <img src="../images/portfolio/hand.png" alt="손이모지">
         <div>
             SCROLL<br>DOWN
         </div>
@@ -56,7 +62,7 @@
         <div class="inner" data-aos="fade-up">
             <h1>ABOUT HJ</h1>
             <div>
-                <img src="../portfolio/images/portfolio/art.jpg" alt="일러스트">
+                <img src="../images/portfolio/art.jpg" alt="일러스트">
             </div>
             <div>
                 <p class="verticalAni" data-aos="fade-right" data-aos-delay="500" data-aos-easing="ease-in-sine">Thinkable,</p>
@@ -79,7 +85,7 @@
             <div class="slider-for">
                 <div class="pj one clearfix">
                     <div class="thumb">
-                        <img src="../portfolio/images/portfolio/pa.png" alt="국립중앙박물관 썸네일">
+                        <img src="../images/portfolio/pa.png" alt="국립중앙박물관 썸네일">
                         <!-- <div>
                             <p><a href="https://ezportfolio.cafe24.com/ez210607/hbhj/projectA/html/pa.html" target="_blank">VIEW</a></p>
                         </div> -->
@@ -129,7 +135,7 @@
                 </div>
                 <div class="pj two clearfix">
                     <div class="thumb">
-                        <img src="../portfolio/images/portfolio/pb.png" alt="내셔널지오그래픽채널 썸네일">
+                        <img src="../images/portfolio/pb.png" alt="내셔널지오그래픽채널 썸네일">
                         <!-- <div>
                             <p><a href="https://ezportfolio.cafe24.com/ez210607/hbhj/projectB/html/pb.html" target="_blank">VIEW</a></p>
                         </div> -->
@@ -172,7 +178,7 @@
                 </div>
                 <div class="pj three clearfix">
                     <div class="thumb">
-                        <img src="../portfolio/images/portfolio/pc.png" alt="청주시 코로나19 상황판">
+                        <img src="../images/portfolio/pc.png" alt="청주시 코로나19 상황판">
                         <!-- <div>
                             <p><a href="https://ezportfolio.cafe24.com/ez210607/hbhj/projectB/html/pb.html" target="_blank">VIEW</a></p>
                         </div> -->
@@ -210,15 +216,15 @@
             </div>
             <div class="slider-nav">
                 <div class="slideThumb one">
-                    <img src="../portfolio/images/portfolio/projectAthumb.png" alt="국립중앙박물관 썸네일">
+                    <img src="../images/portfolio/projectAthumb.png" alt="국립중앙박물관 썸네일">
                     <div>#1</div>
                 </div>
                 <div class="slideThumb two">
-                    <img src="../portfolio/images/portfolio/projectBthumb.png" alt="내셔널 지오그래픽 썸네일">
+                    <img src="../images/portfolio/projectBthumb.png" alt="내셔널 지오그래픽 썸네일">
                     <div>#2</div>
                 </div>
                 <div class="slideThumb three">
-                    <img src="../portfolio/images/portfolio/projectCthumb.png" alt="청주시 코로나19 상황판 썸네일">
+                    <img src="../images/portfolio/projectCthumb.png" alt="청주시 코로나19 상황판 썸네일">
                     <div>#3</div>
                 </div>
                 <!-- <div class="slideThumb four">4</div> -->
@@ -243,10 +249,11 @@
     <footer></footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="../portfolio/js/portfolio.js"></script>
+    <script src="../js/portfolio.js"></script>
 </body>
 
 </html>

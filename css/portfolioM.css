@@ -1,0 +1,66 @@
+@charset "utf-8"; 
+
+body {
+    min-width: 320px;
+}
+
+header {
+    padding: 0 10px;
+}
+.mMenu, .mClose {
+    display: block;
+    font-size: 35px;
+    cursor: pointer;
+}
+.logo {
+    margin-left: 0;
+}
+.menu {
+    width: 90%;
+    height: 100vh;
+    /* padding: 100px 0 0 0; */
+    position: fixed;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    border-left: 1px solid #000;
+    background: #fff;
+    transform: translateX(100%);
+    transition: all 0.5s ease-in-out;
+}
+.menu .mClose {
+    margin: 20px 0 50px 10px;
+}
+.menu p {
+    width: 100%;
+    border-left: none;
+    border-bottom: 2px solid #000;
+}
+.menu p:nth-child(2) {
+    border-top: 2px solid #000;
+}
+.menu p.on {
+    color: #fff;
+    background: #000;
+}
+.sec.top p {
+    font-size: 60px;
+}
+.sec.about {
+    padding-bottom: 50px;
+}
+.sec.about .inner div:nth-child(3) {
+    text-align: center;
+}
+.sec.about .inner div:nth-child(3) > div {
+    text-align: left;
+}
+.slider-for {
+    height: 500px;
+}
+.sec.project .slider-for .pj .title {
+    font-size: 25px;
+}
+.pj .detail {
+    display: none;
+}

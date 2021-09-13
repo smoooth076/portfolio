@@ -1,0 +1,78 @@
+@charset "utf-8"; 
+
+body {
+    min-width: 640px;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+.sec {
+    height: auto;
+    padding: 50px 0 0 0;
+}
+.inner {
+    width: 95%;
+}
+.menu {
+    width: 50%;
+}
+.menu p > span {
+    display: none;
+}
+.mMenu, .mClose {
+    display: none;
+}
+.sec.top {
+    padding-left: 10%;
+}
+.sec.top img {
+    width: 20%;
+    top: 20%;
+    right: 10%;
+}
+.sec.about .inner {
+    flex-direction: column;
+}
+.sec.about .inner > div {
+    width: 100%;
+}
+.sec.about .inner div:nth-child(3) {
+    padding-left: 0;
+    justify-content: center;
+    align-items: center;
+}
+.sec.project .inner {
+    display: flex;
+    flex-direction: column;
+}
+.slider-for, .slider-nav {
+    width: 100%;
+}
+.slider-nav .slick-track {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 50px;
+}
+.slider-nav .slick-slide {
+    width: 33%;
+    height: 100%;
+}
+.sec.project .slider-for .pj div.thumb ~ div {
+    padding-left: 20px;
+}
+.sec.project .slider-for .pj .description {
+    padding-left: 20px !important;
+}
+.sec.project .slider-for .pj .buttons span {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.pj .detail > div > div {
+    padding: 10px;
+}
+form.mail {
+    width: 80%;
+}
