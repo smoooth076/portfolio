@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.clearfix::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.is-ie .sec .inner {
+    display: flex;
+}
+.is-ie .slider-nav .slick-slide {
+    height: auto;
+}
+.is-ie .slider-nav .slideThumb > div {
+    display: none;
+}
