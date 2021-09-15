@@ -12,6 +12,3 @@
 .is-ie .slider-nav .slick-slide {
     height: auto;
 }
-.is-ie .slider-nav .slideThumb > div {
-    display: none;
-}
