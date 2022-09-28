@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+    <title>It's HJ</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/css/portfolioPC.css" />
+    <link rel="stylesheet" media="all and (max-width: 1024px)" type="text/css" href="/css/portfolioT.css">
+    <link rel="stylesheet" media="all and (max-width: 640px)" type="text/css" href="/css/portfolioM.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <p> It's<br>HJ</p>
+        </div>
+        <i class="fas fa-bars mMenu"></i>
+        <div class="menu">
+            <i class="fas fa-angle-right mClose"></i>
+            <p data-id="top">
+                <span></span>
+                MAIN
+                <span></span>
+            </p>
+            <p data-id="about">
+                <span></span>
+                ABOUT
+                <span></span>
+            </p>
+            <p data-id="project">
+                <span></span>
+                PROJECT
+                <span></span>
+            </p>
+            <p data-id="contact">
+                <span></span>
+                CONTACT
+                <span></span>
+            </p>
+        </div>
+    </header>
+    <div class="sec top">
+        <p class="typing1">Hello!</p>
+        <P class="typing2">It's HJ</P>
+    </div>
+    <div class="sec about">
+        <div class="inner" data-aos="fade-up">
+            <h1>ABOUT HJ</h1>
+            <div>
+                <p>NAME: 황보희재</p>
+                <p>EDUCATION: 2021 웹디자인(UI,UX) 및 반응형 웹 프로젝트 과정 수료</p>
+                <p><span>EDUCATION: </span>2018 충북대학교 고고미술사학과 졸업</p>
+                <p>CAREER: 2021 ~ NOW Mr.Romnace Digital Lab</p>
+                <p>SKILLS: HTML, CSS, JS, JQUERY, UI/UX</p>
+            </div>
+        </div>
+    </div>
+    <div class="sec project">
+        <div class="inner" data-aos="fade-up">
+            <h1>PROJECT</h1>
+        </div>
+    </div>
+    <div class="sec contact">
+        <div class="inner">
+            <h1>CONTACT</h1>
+            <p>smoooth076@gmail.com</p>
+            <form id="contactForm" class="mail">
+                <input type="hidden" name="contact_number">
+                <input type="text" id="from_name" name="from_name" placeholder="이름" />
+                <input type="email" name="from_email" placeholder="연락가능한 이메일" />
+                <textarea name="message" placeholder="내용"></textarea>
+                <input type="submit" value="보내기" />
+                <input type="reset" value="초기화" />
+            </form>
+            <p>@IT's HJ 2021</p>
+        </div>
+    </div>
+    <footer></footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/lib/IE-Checker/ie-checker.js"></script>
+    <script src="/js/portfolio.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
