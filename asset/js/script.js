@@ -1,4 +1,5 @@
 $(function () { // wait for document ready
+  AOS.init();
   $(".flow-text").on("click", function(){
     $("html, body").animate({
       scrollTop : 0
